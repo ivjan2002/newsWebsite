@@ -1,0 +1,69 @@
+
+.topUl{
+    display:flex;
+    justify-content: space-around;
+}
+
+.topUl li{
+    position:relative;
+}
+
+.topUl li:hover ul{
+    display:block;
+    background-color: black;
+    color:white;
+}
+
+.topUl a{
+    display:block;
+    padding:10px;
+    color:white;
+    font-weight: 700;
+    font-size: 20px;
+    text-decoration:none;
+}
+
+p{
+    display:block;
+    padding:10px;
+    color:white;
+    font-weight: 700;
+    font-size: 20px;   
+}
+
+.bottomUl{
+    display:none;
+    position:absolute;
+    z-index: 1;
+}
+
+.bottomUl li{
+    width:10rem;
+    padding:10px;
+    color:white;
+    text-align:center;
+    border-bottom:1px solid blueviolet;
+    cursor:pointer;
+    transition:0.7s;
+}
+
+.bottomUl li:hover{
+    background-color:blueviolet;
+    color:black;
+    border-bottom:1px solid black;
+}
+
+@media screen and (max-width:575px){
+    .topUl{
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+
+
+    }
+    .topUl li{
+        width:80%;
+        border-bottom:1px solid blueviolet ;
+
+    }
+}
