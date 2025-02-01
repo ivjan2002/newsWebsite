@@ -3,15 +3,16 @@ import "./Search.css";
 import { useLocation } from "react-router-dom";
 import NewsCard from "../../components/newsCard/NewsCard";
 
+//process.env.REACT_APP_API_KEY
 
 const Search=()=>{
     const[news,setNews]=useState("");
     const {state}=useLocation();
 
-    const apiKey=process.env.REACT_APP_API_KEY;
+    const apiKey=;
     const url=`https://newsapi.org/v2/top-headlines?q=${state}&apiKey=${apiKey}`;
     useEffect(()=>{
-        fetch(url).then((res)=>res.json()).then((data)=>setNews(data.articles)).catch((error)=>console.log(error));
+        fetch(url).then((res)=>res.json()).then((data)=>setNews(data.articles)).catch((error)=>console.error(error));
 
     },[url]
 
