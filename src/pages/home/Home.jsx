@@ -15,7 +15,7 @@ const Home = () => {
 
     const darkMode=theme.state.darkMode;
 
-    const apiKey = ;
+    const apiKey =;
     const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
 
     const getNews = async () => {
