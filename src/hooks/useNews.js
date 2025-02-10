@@ -1,22 +1,22 @@
-import { useState, useEffect, useContext } from "react";
-import axios from "axios";
-import { ThemeContext } from "../context/ThemeContext";
+import {useState,useEffect,useContext} from 'react';
+import axios from 'axios';
+import {ThemeContext} from "../context/ThemeContext";
 
-const useNews = (initialCategory = "", initialCountry = "us") => {
+const useNews=(initialCategory="",initialCountry="us")=>{
     const [news, setNews] = useState([]); 
     const [loading, setLoading] = useState(false);
     const [filter, setFilter] = useState("");
-    const [category, setCategory] = useState(initialCategory);
-    const [country, setCountry] = useState(initialCountry);
+    const[category,setCategory]=useState(initialCategory);
+    const[country,setCountry]=useState(initialCountry);
 
-    const apiKey = "b73497ce3347473d9f12fb64cd0b4210";
-    const { state } = useContext(ThemeContext); // Ispravljeno!
+    const apiKey = ;
+    const theme=useContext(ThemeContext);
 
     const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apikey=${apiKey}`;
     const filterUrl = `https://newsapi.org/v2/top-headlines?country=${filter}&category=${category}&apikey=${apiKey}`;
 
     const handleSubmit = (e) => {
-        e.preventDefault();
+        e.preventDefault(); // Ispravljeno preventDefault
         getNews(filterUrl);
         setFilter("");
     };
@@ -24,8 +24,8 @@ const useNews = (initialCategory = "", initialCountry = "us") => {
     const getNews = async (url) => {
         setLoading(true);
         try {
-            const { data } = await axios.get(url);
-            setNews(data.articles || []);
+            const { data } = await axios.get(url); 
+            setNews(data.articles || []);  
         } catch (error) {
             console.error("Error fetching news:", error);
         } finally {
@@ -35,25 +35,26 @@ const useNews = (initialCategory = "", initialCountry = "us") => {
 
     useEffect(() => {
         getNews(url);
-    }, [category, state.darkMode]); // Ispravljeno!
-
+    }, [category,theme.state.darkMode]);
     useEffect(() => {
-        setCategory(initialCategory);
-        setCountry(initialCountry);
-    }, [initialCountry, initialCategory]);
+        setCategory(initialCategory)
+        setCountry(initialCountry)
+    }, [initialCountry,initialCategory]);
 
-    return {
+    return{
         news,
         loading,
         filter,
         setFilter,
         setCountry,
         country,
-        state, // Promenjeno iz `theme` u `state`
+        theme,
         category,
         setCategory,
-        handleSubmit,
+        handleSubmit
     };
+
+
 };
 
 export default useNews;
