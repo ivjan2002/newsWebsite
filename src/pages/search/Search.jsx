@@ -9,7 +9,7 @@ const Search=()=>{
     const[news,setNews]=useState("");
     const {state}=useLocation();
 
-    const apiKey=;
+    const apiKey="b73497ce3347473d9f12fb64cd0b4210";
     const url=`https://newsapi.org/v2/top-headlines?q=${state}&apiKey=${apiKey}`;
     useEffect(()=>{
         fetch(url).then((res)=>res.json()).then((data)=>setNews(data.articles)).catch((error)=>console.error(error));

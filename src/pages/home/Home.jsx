@@ -1,47 +1,24 @@
 import "./Home.css";
-import { useContext, useEffect, useState } from "react";
+import { useEffect } from "react";
 import Slider from "../../components/slider/Slider";
 import Spinner from "../../components/spinner/Spinner";
 import NewsCard from "../../components/newsCard/NewsCard";
 import ChangeTheme from "../../components/theme/ChangeTheme";
-import axios from "axios";
-import {ThemeContext} from "../../context/ThemeContext";
+import useNews from "../../hooks/useNews";
 
 const Home = () => {
-    const [news, setNews] = useState([]); 
-    const [loading, setLoading] = useState(false);
+    const { news, loading, theme } = useNews("", "us");
 
-    const theme=useContext(ThemeContext);
+    // Provera da li theme postoji pre nego što mu pristupiš
+    const darkMode = theme?.state?.darkMode ?? false;
 
-    const darkMode=theme.state.darkMode;
-
-    const apiKey =;
-    const url = `https://newsapi.org/v2/top-headlines?country=us&apiKey=${apiKey}`;
-
-    const getNews = async () => {
-        setLoading(true);
-        try {
-            const { data } = await axios.get(url); 
-            setNews(data.articles || []);  
-        } catch (error) {
-            console.error("Error fetching news:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        getNews();
-    }, []);
-
-    const sliderNews = news.slice(0, 3);
-
+    useEffect(() => {}, [darkMode]);
 
     return (
-        <div className="container" style={{backgroundColor:darkMode?"#2b2a29":"white"}}>
-            <ChangeTheme/>
+        <div className="container" style={{ backgroundColor: darkMode ? "#2b2a29" : "white" }}>
+            <ChangeTheme />
             <div className="slider">
-                <Slider sliderNews={sliderNews} />
+                <Slider sliderNews={news.slice(0, 3)} />
             </div>
             <div className="news">
                 {loading && <Spinner />}

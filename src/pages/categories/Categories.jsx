@@ -1,42 +1,26 @@
 import { useState, useEffect } from "react";
 import { useLocation } from "react-router-dom";
-import axios from "axios";
 import Spinner from "../../components/spinner/Spinner";
 import NewsCard from "../../components/newsCard/NewsCard";
 import "./Categories.css";
+import useNews from "../../hooks/useNews";
 
 const Categories = () => {
-    const [news, setNews] = useState([]); 
-    const [loading, setLoading] = useState(false);
+    const{state}=useLocation();
+    const{news,loading,filter,setFilter,handleSubmit}=useNews(state.category);
+    
 
-    const { state } = useLocation();
-    console.log("State:", state);
-
-    const category = state?.category || "general"; 
-    const apiKey =;
-    const url = `https://newsapi.org/v2/top-headlines?country=us&category=${category}&apikey=${apiKey}`;
-
-    const getNews = async () => {
-        setLoading(true);
-        try {
-            const { data } = await axios.get(url); 
-            setNews(data.articles || []);  
-        } catch (error) {
-            console.error("Error fetching news:", error);
-        } finally {
-            setLoading(false);
-        }
-    };
-
-    useEffect(() => {
-        getNews();
-    }, [category]);
 
     return (
         <div className="container2">
             <div className="left2">
-                <form className="form2">
-                    <input type="text" placeholder="ex:us,jp,tr,mx.."></input>
+                <form className="form2" onSubmit={handleSubmit}>
+                    <input 
+                        type="text" 
+                        placeholder="ex:us,jp,tr,mx.." 
+                        value={filter} 
+                        onChange={(e) => setFilter(e.target.value)}
+                    />
                     <button type="submit">Filter Country</button>
                 </form>
             </div>
@@ -46,6 +30,6 @@ const Categories = () => {
             </div>
         </div>
     );
-}
+};
 
 export default Categories;
