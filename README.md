@@ -1,3 +1,40 @@
+NewsWebsite – React Frontend App
+
+NewsWebsite is a modern and responsive frontend application built with **React**, designed to display and search news articles based on categories, countries, or keywords. It features a clean UI with support for **light/dark theme toggling**, and is optimized for usability and performance.
+
+Features:
+
+**Browse News by Country** – Select a country to view region-specific news
+**Filter by Category** – Choose between categories like business, sports, technology, health, and more
+**Search News** – Input custom keywords to find relevant news articles
+**Theme Switcher** – Toggle between **light** and **dark** mode for better user experience
+**Responsive Design** – Works across all devices: desktop, tablet, and mobile
+Built with **React**, using modern hooks and component architecture
+
+Tech Stack:
+
+| Technology | Description                      |
+|------------|----------------------------------|
+| React      | UI Library for building the SPA |
+| JavaScript | Application logic                |
+| HTML/CSS   | Markup and styling               |
+| CSS        | Custom styling and responsiveness |
+| React Hooks| State management and effects     |
+
+UI Preview:
+
+Search and Filter Capabilities
+
+- Filter by **category** (e.g., Business, Sports, Entertainment)
+- Filter by **country** (e.g., US, GB, DE, FR, RS)
+- Full **text search** by keyword or phrase
+- Combine filters for more precise results
+
+Light / Dark Theme Toggle
+
+Easily switch between light and dark modes for improved readability and personalization.
+
+
 # Getting Started with Create React App
 
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
@@ -39,29 +76,6 @@ Instead, it will copy all the configuration files and the transitive dependencie
 
 You don't have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn't feel obligated to use this feature. However we understand that this tool wouldn't be useful if you couldn't customize it when you are ready for it.
 
-## Learn More
-
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
-
-To learn React, check out the [React documentation](https://reactjs.org/).
-
-### Code Splitting
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/code-splitting](https://facebook.github.io/create-react-app/docs/code-splitting)
-
-### Analyzing the Bundle Size
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size](https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size)
-
-### Making a Progressive Web App
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app](https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app)
-
-### Advanced Configuration
-
-This section has moved here: [https://facebook.github.io/create-react-app/docs/advanced-configuration](https://facebook.github.io/create-react-app/docs/advanced-configuration)
-
-### Deployment
 
 This section has moved here: [https://facebook.github.io/create-react-app/docs/deployment](https://facebook.github.io/create-react-app/docs/deployment)
 
